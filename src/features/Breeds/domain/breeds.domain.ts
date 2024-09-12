@@ -1,6 +1,6 @@
-export type Breed = string[]; 
-  
 export interface DogBreeds {
-    [breed: string]: Breed;
+    [breed: string]: string[];
 }
+
+export type fetchAllBreedsType = () => Promise<DogBreeds>;
   

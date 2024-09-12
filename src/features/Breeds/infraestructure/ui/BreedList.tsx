@@ -11,6 +11,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import PetsIcon from "@mui/icons-material/Pets";
 import StarBorder from "@mui/icons-material/StarBorder";
 import { DogBreeds } from "../../domain/breeds.domain";
+import Link from "next/link";
 
 interface BreedsListProps {
   allBreeds: DogBreeds;
@@ -54,10 +55,12 @@ export const BreedsList: React.FC<BreedsListProps> = ({ allBreeds }) => {
               <List component="div" disablePadding>
                 {allBreeds[breed].map((subBreed) => (
                   <ListItemButton key={subBreed} sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary={subBreed} />
+                    <Link href={`/${breed}-${subBreed}`}>
+                      <ListItemIcon>
+                        <StarBorder />
+                      </ListItemIcon>
+                      <ListItemText primary={subBreed} />
+                    </Link>
                   </ListItemButton>
                 ))}
               </List>
